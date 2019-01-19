@@ -21,7 +21,7 @@ public class DynamicIntegerArray {
 		//C. iterate through the member array and 
 		//   copy every element from the member array 
 		//   to the new array
-		for (int i = 0; i < temp.length; i++) {
+		for (int i = 0; i < nums.length; i++) {
 			temp[i] = nums[i];
 		}
 		//D. set the member array equal to the new array.
@@ -30,7 +30,7 @@ public class DynamicIntegerArray {
 	
 	//4. Complete the steps in the get method
 	public int get(int location) {
-		//A. Return the value of the memeber array at the location passed in
+		//A. Return the value of the member array at the location passed in
 		return nums[location];
 	}
 	
@@ -39,17 +39,28 @@ public class DynamicIntegerArray {
 	
 	//6. Complete the steps in the set method
 	public void set(int v, int location) {
-		//A. set the variable at the location passed in to the method
-		//   to the new value v
+		//A. set the variable at the location passed in to the method to the new value v
+		nums[location] = v;
 	}
 	
 	//7. Complete the steps in the insert method
 	public void insert(int v, int location) {
-		//A. create and initialize a new int array to be one 
-		//   element longer than the member array
-		
+		//A. create and initialize a new int array to be one element longer than the member array
+		int [] temp = new int[nums.length+1];
 		//B. Make a for loop that iterates through the new array
-
+		for (int i = 0; i < temp.length; i++) {
+			if (i < location) {
+				temp[i] = nums[i];
+			}
+			else if (i > location) {
+				 temp[i] = nums[i-1];
+			}
+			else {
+				
+				temp[i] = v;
+			}
+			
+		}nums= temp;
 			//C. if i is less than location:
 		    //		set the element at i of the new array to the element at i of the member array
 			
