@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class DynamicIntArrayTest {
 
-	/*@Test
+	@Test
 	void testAddAndGet() {
 		DynamicIntegerArray dia = new DynamicIntegerArray();
 		dia.add(1);
@@ -31,7 +31,7 @@ class DynamicIntArrayTest {
 		assertEquals(25, dia.get(1));
 		assertEquals(3, dia.get(2));
 	}
-	*/
+	
 	@Test
 	void testInsert() {
 		DynamicIntegerArray dia = new DynamicIntegerArray();
@@ -47,7 +47,7 @@ class DynamicIntArrayTest {
 		assertEquals(3, dia.get(3));
 	}
 	
-	/*@Test
+	@Test
 	void testRemove() {
 		DynamicIntegerArray dia = new DynamicIntegerArray();
 		dia.add(1);
@@ -58,7 +58,6 @@ class DynamicIntArrayTest {
 		
 		assertEquals(1, dia.get(0));
 		assertEquals(3, dia.get(1));
-		
 	}
 
 	@Test
@@ -70,6 +69,6 @@ class DynamicIntArrayTest {
 		assertEquals(3, dia.size());
 		dia.clear();
 		assertEquals(0, dia.size());
-	}*/
+	}
 	
 }
