@@ -55,10 +55,8 @@ public class DynamicIntegerArray {
 			} else if (i > location) {
 				temp[i] = nums[i - 1];
 			} else {
-
 				temp[i] = v;
 			}
-
 		}
 		nums = temp;
 		// C. if i is less than location:
