@@ -58,7 +58,6 @@ class DynamicIntArrayTest {
 		
 		assertEquals(1, dia.get(0));
 		assertEquals(3, dia.get(1));
-		
 	}
 
 	@Test
