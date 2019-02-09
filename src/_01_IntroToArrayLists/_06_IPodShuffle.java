@@ -1,15 +1,32 @@
 package _01_IntroToArrayLists;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 //Copyright The League of Amazing Programmers, 2015
 
-public class _06_IPodShuffle{
+public class _06_IPodShuffle implements ActionListener{
 	public _06_IPodShuffle() {
 		// 1. Use the Song class the play the demo.mp3 file.
-				
+		ArrayList<Song> songs = new ArrayList<>();
+		Song song1 = new Song("demo.mp3");
+		songs.add(song1);
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		JButton button = new JButton();
+		button.setText("Surprise Me!");
+		frame.add(panel);
+		panel.add(button);
+		frame.setVisible(true);
+		frame.pack();
+		
 				
 		/**
 		 * 2. Congratulations on completing the sound check! * Now we want to make an
@@ -18,10 +35,17 @@ public class _06_IPodShuffle{
 		 * you're really cool, you can stop all the songs, before playing a new one on
 		 * subsequent button clicks.
 		 */
-		
+	
 	}
 	
 	public static void main(String[] args) {
 		new _06_IPodShuffle();
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton buttonPressed = (JButton) e.getSource();
 	}
 }
