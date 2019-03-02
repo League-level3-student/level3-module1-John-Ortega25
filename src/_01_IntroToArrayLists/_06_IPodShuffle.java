@@ -9,13 +9,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class _06_IPodShuffle implements ActionListener {
-	JButton shuffleButton = new JButton();
-	ArrayList<Song> songs = new ArrayList<>();
-	int currentSongIndex = 0;
+	private JButton shuffleButton = new JButton();
+	private ArrayList<Song> songs = new ArrayList<>();
+	private int currentSongIndex = 0;
+	private JFrame frame = new JFrame();
+	private JPanel panel = new JPanel();
 
 	public _06_IPodShuffle() {
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
+		/**
+		 * 2. Congratulations on completing the sound check! * Now we want to make an
+		 * iPod Shuffle that plays random music. * Create an ArrayList of Songs and a
+		 * "Surprise Me!" button that will play a random song when it is clicked. * If
+		 * you're really cool, you can stop all the songs, before playing a new one on
+		 * subsequent button clicks.
+		 */
+	}
+
+	public void startIpod() {
 		songs.add(new Song("Cow.mp3"));
 		songs.add(new Song("Pig.mp3"));
 		songs.add(new Song("Rooster.mp3"));
@@ -28,18 +38,11 @@ public class _06_IPodShuffle implements ActionListener {
 		frame.pack();
 		frame.setVisible(true);
 
-		/**
-		 * 2. Congratulations on completing the sound check! * Now we want to make an
-		 * iPod Shuffle that plays random music. * Create an ArrayList of Songs and a
-		 * "Surprise Me!" button that will play a random song when it is clicked. * If
-		 * you're really cool, you can stop all the songs, before playing a new one on
-		 * subsequent button clicks.
-		 */
-
 	}
 
 	public static void main(String[] args) {
-		new _06_IPodShuffle();
+		_06_IPodShuffle ipod = new _06_IPodShuffle();
+		ipod.startIpod();
 	}
 
 	@Override
