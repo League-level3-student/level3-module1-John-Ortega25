@@ -13,11 +13,11 @@ public class _01_IntroToStack {
 		double smallNum;	
 		//1. Create a Stack of Doubles
 		//   Don't forget to import the Stack class
-		Stack <Double> test = new Stack<>();
+		Stack <Double> popNums = new Stack<>();
 		//2. Use a loop to push 100 random doubles between 0 and 100 to the Stack.
 		Random generator = new Random();
 		for (double i = 0; i < 101; i++) {
-			test.push(generator.nextDouble() *100);
+			popNums.push(generator.nextDouble() *100);
 		}
 		//3. Ask the user to enter in two numbers between 0 and 100, inclusive. 
 		String num = JOptionPane.showInputDialog("Enter a number between 0-100");
@@ -34,8 +34,8 @@ public class _01_IntroToStack {
 			smallNum = userNum;
 		}
 		
-		for (double i = 0; i < test.size(); i++) {
-			double poppedNum = test.pop();	
+		for (double i = 0; i < popNums.size(); i++) {
+			double poppedNum = popNums.pop();	
 			if (poppedNum <= bigNum && poppedNum >= smallNum) {
 				System.out.println(poppedNum);
 			}	
