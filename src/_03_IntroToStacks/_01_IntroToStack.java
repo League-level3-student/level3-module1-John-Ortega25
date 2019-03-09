@@ -6,17 +6,40 @@ import java.util.Stack;
 import javax.swing.JOptionPane;
 
 public class _01_IntroToStack {
+	
+	
 	public static void main(String[] args) {
+		double bigNum;
+		double smallNum;	
 		//1. Create a Stack of Doubles
 		//   Don't forget to import the Stack class
-		
+		Stack <Double> popNums = new Stack<>();
 		//2. Use a loop to push 100 random doubles between 0 and 100 to the Stack.
-		
+		Random generator = new Random();
+		for (double i = 0; i < 101; i++) {
+			popNums.push(generator.nextDouble() *100);
+		}
 		//3. Ask the user to enter in two numbers between 0 and 100, inclusive. 
-		
+		String num = JOptionPane.showInputDialog("Enter a number between 0-100");
+		String num2 = JOptionPane.showInputDialog("Ente a second number please");
+		double userNum = Double.parseDouble(num);
+		double userNum2 = Double.parseDouble(num2);
 		//4. Pop all the elements off of the Stack. Every time a double is popped that is
 		//   between the two numbers entered by the user, print it to the screen.
+		if (userNum > userNum2) {
+			bigNum = userNum;
+			smallNum = userNum2;
+		}	else {
+			bigNum = userNum2;
+			smallNum = userNum;
+		}
 		
+		for (double i = 0; i < popNums.size(); i++) {
+			double poppedNum = popNums.pop();	
+			if (poppedNum <= bigNum && poppedNum >= smallNum) {
+				System.out.println(poppedNum);
+			}	
+		}
 		
 		//   EXAMPLE:
 		//   NUM 1: 65
