@@ -9,12 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Hire implements ActionListener {
-	JButton hireButton = new JButton();
-	JButton layOffButton = new JButton();
-	Stack<String> employees = new Stack<>();
-	JTextField hireText = new JTextField(10);
-	JTextField layOffText = new JTextField(3);
-	private String finalList = "";
+	private JButton hireButton = new JButton();
+	private JButton layOffButton = new JButton();
+	private Stack<String> employees = new Stack<>();
+	private JTextField hireText = new JTextField(10);
+	private JTextField layOffText = new JTextField(3);
 
 	public void createUI() {
 		JFrame frame = new JFrame();
@@ -28,14 +27,13 @@ public class Hire implements ActionListener {
 		layOffButton.setText("Lay off");
 		hireButton.addActionListener(this);
 		layOffButton.addActionListener(this);
-
 		frame.pack();
 		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
-		Hire test = new Hire();
-		test.createUI();
+		Hire employees = new Hire();
+		employees.createUI();
 	}
 
 	@Override
@@ -49,6 +47,7 @@ public class Hire implements ActionListener {
 			String userNumLayOff = layOffText.getText();
 			int numLayOff = Integer.parseInt(userNumLayOff);
 			if (numLayOff <= employees.size()) {
+				String finalList = "";
 				for (int i = 0; i < numLayOff; i++) {
 					String employeeLaidOff = employees.pop();
 					finalList = finalList + "\n" + employeeLaidOff;
