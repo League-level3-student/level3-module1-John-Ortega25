@@ -6,12 +6,14 @@ import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class _02_LogSearch implements ActionListener {
 	JButton addButton = new JButton();
 	JButton addTheAddButton = new JButton();
+	JButton addTheSearchButton = new JButton();
 	JButton searchButton = new JButton();
 	JButton listButton = new JButton();
 	JLabel idLabel = new JLabel();
@@ -49,6 +51,21 @@ public class _02_LogSearch implements ActionListener {
 		panel.add(nameField);
 		panel.add(addTheAddButton);
 		addTheAddButton.setText("add");
+		addTheAddButton.addActionListener(this);
+		frame.pack();
+		frame.setVisible(true);
+	}
+
+	public void createSearchUI() {
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		panel.add(idLabel);
+		panel.add(idField);
+		panel.add(addTheSearchButton);
+		idLabel.setText("Enter ID Number");
+		addTheSearchButton.setText("Search");
+		addTheSearchButton.addActionListener(this);
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -56,6 +73,7 @@ public class _02_LogSearch implements ActionListener {
 	public static void main(String[] args) {
 		_02_LogSearch logNames = new _02_LogSearch();
 		logNames.createUI();
+
 	}
 
 	@Override
@@ -66,14 +84,24 @@ public class _02_LogSearch implements ActionListener {
 		}
 		if (buttonPressed == addTheAddButton) {
 			String name = nameField.getText();
-			String id = idField.getText();
-			Integer idNum = Integer.parseInt(id);
-			logSearch.put(idNum, name);
+			String addID = idField.getText();
+			Integer addIDNum = Integer.parseInt(addID);
+			logSearch.put(addIDNum, name);
 		}
 
 		if (buttonPressed == listButton) {
 			for (Integer i : logSearch.keySet()) {
 				System.out.println(logSearch.get(i));
+			}
+		}
+		if (buttonPressed == searchButton) {
+			createSearchUI();
+		}
+		if (buttonPressed == addTheSearchButton) {
+			String searchID = idField.getText();
+			Integer searchIDNum = Integer.parseInt(searchID);
+			if (logSearch.containsKey(searchIDNum)) {
+				JOptionPane.showMessageDialog(null, "The person you are looking for is "+ logSearch.get(searchIDNum));
 			}
 		}
 	}
