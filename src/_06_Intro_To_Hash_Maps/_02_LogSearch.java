@@ -37,6 +37,8 @@ public class _02_LogSearch implements ActionListener {
 		listButton.addActionListener(this);
 		searchButton.addActionListener(this);
 		addButton.addActionListener(this);
+		addTheAddButton.addActionListener(this);
+		addTheSearchButton.addActionListener(this);
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -51,7 +53,6 @@ public class _02_LogSearch implements ActionListener {
 		panel.add(nameField);
 		panel.add(addTheAddButton);
 		addTheAddButton.setText("add");
-		addTheAddButton.addActionListener(this);
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -65,7 +66,6 @@ public class _02_LogSearch implements ActionListener {
 		panel.add(addTheSearchButton);
 		idLabel.setText("Enter ID Number");
 		addTheSearchButton.setText("Search");
-		addTheSearchButton.addActionListener(this);
 		frame.pack();
 		frame.setVisible(true);
 	}
@@ -73,26 +73,30 @@ public class _02_LogSearch implements ActionListener {
 	public static void main(String[] args) {
 		_02_LogSearch logNames = new _02_LogSearch();
 		logNames.createUI();
-
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
+		String names = " ";
 		JButton buttonPressed = (JButton) e.getSource();
 		if (buttonPressed == addButton) {
 			createAddUI();
+
 		}
 		if (buttonPressed == addTheAddButton) {
 			String name = nameField.getText();
 			String addID = idField.getText();
 			Integer addIDNum = Integer.parseInt(addID);
 			logSearch.put(addIDNum, name);
+			nameField.setText("");
+			idField.setText("");
 		}
 
 		if (buttonPressed == listButton) {
 			for (Integer i : logSearch.keySet()) {
-				System.out.println(logSearch.get(i));
+				names = names + "ID: " + i + " Name: " + logSearch.get(i) + "\n";
+
 			}
+			JOptionPane.showMessageDialog(null, names);
 		}
 		if (buttonPressed == searchButton) {
 			createSearchUI();
@@ -101,8 +105,9 @@ public class _02_LogSearch implements ActionListener {
 			String searchID = idField.getText();
 			Integer searchIDNum = Integer.parseInt(searchID);
 			if (logSearch.containsKey(searchIDNum)) {
-				JOptionPane.showMessageDialog(null, "The person you are looking for is "+ logSearch.get(searchIDNum));
+				JOptionPane.showMessageDialog(null, "The person you are looking for is " + logSearch.get(searchIDNum));
 			}
+			idField.setText("");
 		}
 	}
 }
